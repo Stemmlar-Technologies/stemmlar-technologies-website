@@ -13,8 +13,8 @@ jobs:
         runs-on: ubuntu-latest
         environment: production
         env:
-            AWS_BUCKET: stemmlar-technologies-website
-            AWS_DISTRIBUTION_ID: PLACEHOLDER_DISTRIBUTION_ID
+            AWS_BUCKET: ${{ vars.AWS_BUCKET }}
+            AWS_DISTRIBUTION_ID: ${{ vars.AWS_DISTRIBUTION_ID }}
             AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
             BUILD_DIR: ./dist
             CI: ''
