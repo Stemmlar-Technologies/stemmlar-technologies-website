@@ -16,6 +16,21 @@ const apps = [
     banner: null,
     badge: 'Live',
     badgeLive: true,
+    href: '/applications/track-my-time',
+    external: false,
+  },
+  {
+    slug: 'forsaking-valhalla',
+    name: 'Forsaking Valhalla',
+    platform: 'PC · Steam / Itch.io',
+    description:
+      'A Viking action game where you must fight your way through the afterlife. Wishlist on Steam or try the beta on Itch.io now.',
+    icon: '/img/icons/icon_steam.png',
+    banner: '/img/store_page_background.webp',
+    badge: 'In Development',
+    badgeLive: false,
+    href: 'https://store.steampowered.com/app/3490030/Forsaking_Valhalla',
+    external: true,
   },
   {
     slug: 'lara-jones-and-the-caves-of-madness',
@@ -27,6 +42,8 @@ const apps = [
     banner: '/applications/lara-jones-and-the-caves-of-madness/img/banner.png',
     badge: 'Coming Soon',
     badgeLive: false,
+    href: '/applications/lara-jones-and-the-caves-of-madness',
+    external: false,
   },
 ]
 
@@ -120,46 +137,60 @@ export default function DraftHome() {
           </p>
 
           <div className={styles.appsGrid}>
-            {apps.map((app) => (
-              <Link
-                key={app.slug}
-                to={`/applications/${app.slug}`}
-                className={styles.appCard}
-              >
-                {app.banner ? (
-                  <img
-                    src={app.banner}
-                    alt={`${app.name} banner`}
-                    className={styles.appCardBanner}
-                  />
-                ) : (
-                  <div className={styles.appCardBannerPlaceholder}>
-                    <img src={app.icon} alt="" />
-                  </div>
-                )}
+            {apps.map((app) => {
+              const cardContent = (
+                <>
+                  {app.banner ? (
+                    <img
+                      src={app.banner}
+                      alt={`${app.name} banner`}
+                      className={styles.appCardBanner}
+                    />
+                  ) : (
+                    <div className={styles.appCardBannerPlaceholder}>
+                      <img src={app.icon} alt="" />
+                    </div>
+                  )}
 
-                <div className={styles.appCardBody}>
-                  <div className={styles.appCardHeader}>
-                    <img src={app.icon} alt={`${app.name} icon`} className={styles.appCardIcon} />
-                    <div className={styles.appCardMeta}>
-                      <div className={styles.appCardName}>{app.name}</div>
-                      <div className={styles.appCardPlatform}>{app.platform}</div>
+                  <div className={styles.appCardBody}>
+                    <div className={styles.appCardHeader}>
+                      <img src={app.icon} alt={`${app.name} icon`} className={styles.appCardIcon} />
+                      <div className={styles.appCardMeta}>
+                        <div className={styles.appCardName}>{app.name}</div>
+                        <div className={styles.appCardPlatform}>{app.platform}</div>
+                      </div>
+                    </div>
+
+                    <p className={styles.appCardDesc}>{app.description}</p>
+
+                    <div className={styles.appCardFooter}>
+                      <span
+                        className={`${styles.appCardBadge} ${app.badgeLive ? styles.appCardBadgeLive : ''}`}
+                      >
+                        {app.badge}
+                      </span>
+                      <span className={styles.appCardArrow}>→</span>
                     </div>
                   </div>
+                </>
+              )
 
-                  <p className={styles.appCardDesc}>{app.description}</p>
-
-                  <div className={styles.appCardFooter}>
-                    <span
-                      className={`${styles.appCardBadge} ${app.badgeLive ? styles.appCardBadgeLive : ''}`}
-                    >
-                      {app.badge}
-                    </span>
-                    <span className={styles.appCardArrow}>→</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+              return app.external ? (
+                <a
+                  key={app.slug}
+                  href={app.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.appCard}
+                >
+                  {cardContent}
+                </a>
+              ) : (
+                <Link key={app.slug} to={app.href} className={styles.appCard}>
+                  {cardContent}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
