@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useState, useEffect, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import BannerAnimation from '../../components/BannerAnimation'
 import styles from './DraftHome.module.css'
@@ -62,6 +62,16 @@ const FORM_ENDPOINT =
 
 export default function DraftHome() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [navVisible, setNavVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      // Show nav once user scrolls past 80% of the viewport height (past the hero)
+      setNavVisible(window.scrollY > window.innerHeight * 0.8)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -86,7 +96,7 @@ export default function DraftHome() {
     <div className={styles.page}>
 
       {/* ── Nav ── */}
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} ${navVisible ? styles.navVisible : ''}`}>
         <img
           src="/img/Stemmlar Technologies Logo.png"
           alt="Stemmlar Technologies"

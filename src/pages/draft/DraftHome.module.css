@@ -45,6 +45,17 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--surface-border);
+  /* Hidden by default — slides in on scroll */
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.navVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .navLogo {
