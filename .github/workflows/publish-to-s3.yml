@@ -13,13 +13,14 @@ jobs:
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             AWS_BUCKET: ${{ secrets.AWS_BUCKET }}
             AWS_DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
+            BUILD_DIR: ./dist
             CI: ''
         steps:
             - uses: actions/checkout@master
 
             - uses: actions/setup-node@v4
               with:
-                  node-version: 22.15.0
+                  node-version: 24.15.0
 
             - run: npm install
             - run: npm run build
@@ -28,17 +29,17 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v1
               with:
                   aws-access-key-id: ${{ env.AWS_KEY_ID }}
-                  aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY}}
+                  aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
                   aws-region: eu-west-1
 
             - name: Clear S3 Bucket
               run: |
-                  aws s3 rm s3://${{env.AWS_BUCKET}} --recursive
+                  aws s3 rm s3://${{ env.AWS_BUCKET }} --recursive
 
             - name: Upload files to S3 bucket
               run: |
-                  aws s3 cp ./dist s3://${{env.AWS_BUCKET}} --recursive
+                  aws s3 cp ${{ env.BUILD_DIR }} s3://${{ env.AWS_BUCKET }} --recursive
 
             - name: Invalidate Cloudfront Cache
               run: |
-                  aws cloudfront create-invalidation --distribution-id ${{env.AWS_DISTRIBUTION_ID}} --paths /*
+                  aws cloudfront create-invalidation --distribution-id ${{ env.AWS_DISTRIBUTION_ID }} --paths /*
