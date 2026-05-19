@@ -2,20 +2,126 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Stemmlar Technologies</title>
-    <script>
-      // GitHub Pages SPA redirect
-      // Encodes the path into a query string so index.html can restore it.
-      // See: https://github.com/rafgraph/spa-github-pages
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1).join('/') +
-        '/?p=/' + l.pathname.slice(1).replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Stemmlar Technologies</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: rgb(10, 10, 12);
+        color: rgb(240, 240, 245);
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        background-image: url('/img/banner.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Dark overlay over the banner */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 10, 12, 0.85);
+        z-index: 0;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 520px;
+      }
+
+      .logo {
+        width: min(320px, 70vw);
+        height: auto;
+        margin-bottom: 8px;
+        filter: drop-shadow(0 4px 24px rgba(246, 101, 5, 0.35));
+      }
+
+      .code {
+        font-size: clamp(5rem, 20vw, 8rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        background: linear-gradient(135deg, rgb(246, 101, 5) 0%, rgb(255, 160, 80) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .title {
+        font-size: clamp(1.25rem, 4vw, 1.75rem);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: rgba(240, 240, 245, 0.55);
+        line-height: 1.6;
+      }
+
+      .divider {
+        width: 40px;
+        height: 2px;
+        background: rgb(246, 101, 5);
+        border-radius: 2px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgb(246, 101, 5);
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 0 0 0 rgba(246, 101, 5, 0.35);
+        margin-top: 8px;
+      }
+
+      .btn:hover {
+        background: rgb(169, 69, 3);
+        transform: translateY(-2px);
+        box-shadow: 0 0 24px rgba(246, 101, 5, 0.35);
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="content">
+      <img
+        src="/img/Stemmlar Technologies Logo.png"
+        alt="Stemmlar Technologies"
+        class="logo"
+      />
+      <div class="divider"></div>
+      <p class="code">404</p>
+      <h1 class="title">Page not found</h1>
+      <p class="subtitle">
+        Looks like this page wandered into the Caves of Madness and didn't come back.
+      </p>
+      <a href="/" class="btn">← Back to Home</a>
+    </div>
+  </body>
 </html>
