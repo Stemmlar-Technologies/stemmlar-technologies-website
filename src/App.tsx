@@ -5,6 +5,7 @@ import TrackMyTime from './pages/apps/TrackMyTime'
 import TrackMyTimePrivacy from './pages/apps/TrackMyTimePrivacy'
 import LaraJones from './pages/apps/LaraJones'
 import LaraJonesPrivacy from './pages/apps/LaraJonesPrivacy'
+import DraftHome from './pages/draft/DraftHome'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           path="/applications/lara-jones-and-the-caves-of-madness/privacy"
           element={<LaraJonesPrivacy />}
         />
+        <Route path="/draft/home" element={<DraftHome />} />
       </Routes>
     </BrowserRouter>
   )

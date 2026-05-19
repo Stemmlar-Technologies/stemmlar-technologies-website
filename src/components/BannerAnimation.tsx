@@ -56,15 +56,12 @@ class Vehicle {
   applyBehaviors(vehicles: Vehicle[], p: p5) {
     const separateForce = this.separate(vehicles)
     const seekForce = this.seek(p)
-
     let separateRatio = 0.5
     let seekRatio = 0.5
-
     if (this.target == null) {
       separateRatio = 1.0
       seekRatio = 0.0
     }
-
     separateForce.mult(separateRatio)
     seekForce.mult(seekRatio)
     this.applyForce(separateForce)
@@ -73,19 +70,16 @@ class Vehicle {
 
   boundaries(p: p5) {
     let desired: p5.Vector | null = null
-
     if (this.position.x < this.d) {
       desired = p.createVector(this.maxspeed, this.velocity.y)
     } else if (this.position.x > p.width - this.d) {
       desired = p.createVector(-this.maxspeed, this.velocity.y)
     }
-
     if (this.position.y < this.d) {
       desired = p.createVector(this.velocity.x, this.maxspeed)
     } else if (this.position.y > p.height - this.d) {
       desired = p.createVector(this.velocity.x, -this.maxspeed)
     }
-
     if (desired !== null) {
       desired.normalize()
       desired.mult(this.maxspeed)
@@ -157,7 +151,6 @@ class Vehicle {
       p.endShape(p.CLOSE)
       p.pop()
     }
-
     p.strokeWeight(3)
     for (let i = 1; i < this.trailPoints.length; i++) {
       const alpha = (1 - i / this.trailPoints.length) * 0.5 * 255
@@ -173,7 +166,11 @@ class Vehicle {
 
 const VEHICLE_COUNT = 10
 
-export default function BannerAnimation() {
+interface BannerAnimationProps {
+  className?: string
+}
+
+export default function BannerAnimation({ className }: BannerAnimationProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const sketchRef = useRef<p5 | null>(null)
 
@@ -185,15 +182,16 @@ export default function BannerAnimation() {
       let vehicles: Vehicle[] = []
       let shipImage: p5.Image | null = null
 
-      // p5 v2: assign lifecycle methods directly on the instance
-      ;(p as unknown as Record<string, unknown>)['preload'] = () => {
-        // loadImage inside preload returns p5.Image synchronously
-        shipImage = p.loadImage('/decorations/banner/assets/ship.png') as unknown as p5.Image
-      }
-
-      p.setup = () => {
+      // p5 v2: load assets in setup() using async/await
+      p.setup = async () => {
         const canvas = p.createCanvas(container.clientWidth, container.clientHeight)
         canvas.parent(container)
+        try {
+          shipImage = await p.loadImage('/decorations/banner/assets/ship.png')
+        } catch {
+          // fall back to triangle rendering if image fails to load
+          shipImage = null
+        }
         for (let i = 0; i < VEHICLE_COUNT; i++) {
           vehicles.push(new Vehicle(p.width / 2, p.height / 2, shipImage, p))
         }
@@ -231,5 +229,5 @@ export default function BannerAnimation() {
     }
   }, [])
 
-  return <div ref={containerRef} className="landing-decoration" />
+  return <div ref={containerRef} className={className ?? 'landing-decoration'} />
 }
