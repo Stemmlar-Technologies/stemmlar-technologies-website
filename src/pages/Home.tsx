@@ -9,6 +9,7 @@ const apps = [
   {
     slug: 'track-my-time',
     name: 'Track My Time',
+    type: 'App',
     platform: 'Android · Google Play',
     description:
       'Effortless task tracking for professionals and students. Start, pause, and switch between tasks with a single tap — then generate reports to understand where your time actually goes.',
@@ -23,6 +24,7 @@ const apps = [
   {
     slug: 'forsaking-valhalla',
     name: 'Forsaking Valhalla',
+    type: 'Game',
     platform: 'PC · Steam / Itch.io',
     description:
       'A survival RTS game where you defend your village against relentless waves of Norse mythological creatures. Build defenses, train warriors, and gather resources to survive as long as possible. If your Town Hall falls, it\'s game over. How long will you last?',
@@ -37,6 +39,7 @@ const apps = [
   {
     slug: 'lara-jones-and-the-caves-of-madness',
     name: 'Lara Jones and the Caves of Madness',
+    type: 'Game',
     platform: 'Mobile · Itch.io',
     description:
       'A puzzle-adventure game set inside a mysterious cave temple. Solve ancient riddles, uncover hidden mechanisms, and claim the legendary treasure.',
@@ -181,6 +184,9 @@ export default function DraftHome() {
                     <p className={styles.appCardDesc}>{app.description}</p>
 
                     <div className={styles.appCardFooter}>
+                      <span className={`${styles.appCardTypeTag} ${app.type === 'Game' ? styles.appCardTypeTagGame : styles.appCardTypeTagApp}`}>
+                        {app.type}
+                      </span>
                       <span
                         className={`${styles.appCardBadge} ${app.badgeLive ? styles.appCardBadgeLive : ''}`}
                       >

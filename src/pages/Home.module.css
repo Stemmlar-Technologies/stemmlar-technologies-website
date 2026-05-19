@@ -368,6 +368,29 @@
   margin-top: 2px;
 }
 
+.appCardTypeTag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+
+.appCardTypeTagGame {
+  color: rgb(155, 135, 245);
+  background: rgba(155, 135, 245, 0.1);
+  border-color: rgba(155, 135, 245, 0.3);
+}
+
+.appCardTypeTagApp {
+  color: rgb(80, 180, 230);
+  background: rgba(80, 180, 230, 0.1);
+  border-color: rgba(80, 180, 230, 0.3);
+}
+
 .appCardDesc {
   font-size: 0.9rem;
   color: var(--text-secondary);
