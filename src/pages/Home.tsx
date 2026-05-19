@@ -56,6 +56,7 @@ const socialLinks = [
   { label: 'TikTok', icon: '/img/icons/icon_tiktok.png', url: 'https://tiktok.com/@stemmlar_tech' },
   { label: 'X / Twitter', icon: '/img/icons/icon_x.png', url: 'https://x.com/stemmlar_tech' },
   { label: 'GitHub', icon: '/img/icons/icon_github.png', url: 'https://github.com/Stemmlar-Technologies' },
+  { label: 'Steam', icon: '/img/icons/icon_steam.png', url: 'https://store.steampowered.com/developer/stemmlartechnologies' },
 ]
 
 const FORM_ENDPOINT =
