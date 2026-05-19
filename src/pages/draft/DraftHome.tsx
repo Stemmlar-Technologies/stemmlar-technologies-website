@@ -14,6 +14,7 @@ const apps = [
       'Effortless task tracking for professionals and students. Start, pause, and switch between tasks with a single tap — then generate reports to understand where your time actually goes.',
     icon: '/applications/track-my-time/img/app-icon.png',
     banner: null,
+    placeholderGradient: 'linear-gradient(135deg, rgb(22, 48, 24) 0%, rgb(40, 80, 44) 50%, rgb(28, 60, 32) 100%)',
     badge: 'Live',
     badgeLive: true,
     href: '/applications/track-my-time',
@@ -27,6 +28,7 @@ const apps = [
       'A survival RTS game where you defend your village against relentless waves of Norse mythological creatures. Build defenses, train warriors, and gather resources to survive as long as possible. If your Town Hall falls, it\'s game over. How long will you last?',
     icon: '/applications/forsaking-valhalla/forsaking-valhalla-icon-52.png',
     banner: '/applications/forsaking-valhalla/store_capsule_header.png',
+    placeholderGradient: null,
     badge: 'In Development',
     badgeLive: false,
     href: 'https://store.steampowered.com/app/3490030/Forsaking_Valhalla',
@@ -40,6 +42,7 @@ const apps = [
       'A puzzle-adventure game set inside a mysterious cave temple. Solve ancient riddles, uncover hidden mechanisms, and claim the legendary treasure.',
     icon: '/applications/lara-jones-and-the-caves-of-madness/img/app-icon.png',
     banner: '/applications/lara-jones-and-the-caves-of-madness/img/banner.png',
+    placeholderGradient: null,
     badge: 'Coming Soon',
     badgeLive: false,
     href: '/applications/lara-jones-and-the-caves-of-madness',
@@ -157,7 +160,10 @@ export default function DraftHome() {
                       className={styles.appCardBanner}
                     />
                   ) : (
-                    <div className={styles.appCardBannerPlaceholder}>
+                    <div
+                    className={styles.appCardBannerPlaceholder}
+                    style={app.placeholderGradient ? { background: app.placeholderGradient } : undefined}
+                  >
                       <img src={app.icon} alt="" />
                     </div>
                   )}
