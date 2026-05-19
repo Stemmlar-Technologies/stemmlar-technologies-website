@@ -14,7 +14,7 @@ const apps = [
       'Effortless task tracking for professionals and students. Start, pause, and switch between tasks with a single tap — then generate reports to understand where your time actually goes.',
     icon: '/applications/track-my-time/img/app-icon.png',
     banner: null,
-    placeholderGradient: 'linear-gradient(135deg, rgb(22, 48, 24) 0%, rgb(40, 80, 44) 50%, rgb(28, 60, 32) 100%)',
+    placeholderGradient: 'linear-gradient(135deg, rgb(34, 90, 38) 0%, rgb(62, 140, 68) 50%, rgb(44, 110, 50) 100%)',
     badge: 'Live',
     badgeLive: true,
     href: '/applications/track-my-time',
