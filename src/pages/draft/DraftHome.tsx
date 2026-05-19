@@ -66,8 +66,8 @@ export default function DraftHome() {
 
   useEffect(() => {
     const onScroll = () => {
-      // Show nav once user scrolls past 80% of the viewport height (past the hero)
-      setNavVisible(window.scrollY > window.innerHeight * 0.8)
+      // Show nav once user scrolls past 50% of the viewport height (halfway through the hero)
+      setNavVisible(window.scrollY > window.innerHeight * 0.5)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
