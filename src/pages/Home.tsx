@@ -1,4 +1,3 @@
-import BannerAnimation from '../components/BannerAnimation'
 import SectionContainer from '../components/SectionContainer'
 import AppTile from '../components/AppTile'
 import ContactForm from '../components/ContactForm'
@@ -9,7 +8,8 @@ export default function Home() {
     <>
       {/* Landing Section */}
       <section id="landing" className="landing">
-        <BannerAnimation />
+        {/* BannerAnimation disabled — p5.js v2 API incompatibility, to be fixed */}
+        <div className="landing-decoration" />
         <div className="container landing-content">
           <img
             src="/img/Stemmlar Technologies Logo.png"
