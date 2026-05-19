@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './TrackMyTime.module.css'
 
@@ -45,6 +46,7 @@ const FEATURES = [
 const STORE_URL = 'https://play.google.com/store/apps/details?id=com.stemmlar.track_my_time'
 
 export default function TrackMyTime() {
+  useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div className={styles.page}>
 

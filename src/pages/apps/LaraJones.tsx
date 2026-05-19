@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './LaraJones.module.css'
 
@@ -27,6 +28,7 @@ const FEATURES = [
 ]
 
 export default function LaraJones() {
+  useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div className={styles.page}>
 
@@ -87,7 +89,7 @@ export default function LaraJones() {
           </div>
           <div className={styles.aboutVisual}>
             <img
-              src="/applications/lara-jones-and-the-caves-of-madness/img/feature-graphic.png"
+              src="/applications/lara-jones-and-the-caves-of-madness/img/banner_small.png"
               alt="Lara Jones gameplay"
             />
           </div>

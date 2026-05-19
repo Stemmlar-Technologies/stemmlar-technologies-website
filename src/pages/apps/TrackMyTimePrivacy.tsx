@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './AppPage.module.css'
 
@@ -40,6 +41,7 @@ const SECTIONS = [
 ]
 
 export default function TrackMyTimePrivacy() {
+  useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div className={styles.page}>
 
