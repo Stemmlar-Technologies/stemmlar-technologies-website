@@ -1,11 +1,9 @@
 /* ============================================================
-   DRAFT HOME — Design System
+   HOME — Design System
+   Brand tokens are defined in global.css :root
    ============================================================ */
 
 :root {
-  --brand-orange: rgb(246, 101, 5);
-  --brand-orange-dark: rgb(169, 69, 3);
-  --brand-orange-glow: rgba(246, 101, 5, 0.35);
   --surface-dark: rgb(10, 10, 12);
   --surface-card: rgb(18, 18, 22);
   --surface-card-hover: rgb(24, 24, 30);
@@ -45,7 +43,6 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--surface-border);
-  /* Hidden by default — slides in on scroll */
   opacity: 0;
   transform: translateY(-100%);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -125,7 +122,6 @@
   z-index: 0;
 }
 
-/* p5 canvas lives here — fills the hero behind the content */
 .heroCanvas {
   position: absolute;
   inset: 0;
@@ -146,7 +142,7 @@
   width: min(420px, 80vw);
   height: auto;
   margin-bottom: 24px;
-  filter: drop-shadow(0 4px 32px rgba(246, 101, 5, 0.4));
+  filter: drop-shadow(0 4px 32px var(--brand-orange-glow));
 }
 
 .heroTagline {
@@ -298,8 +294,8 @@
 
 .appCard:hover {
   transform: translateY(-4px);
-  border-color: rgba(246, 101, 5, 0.4);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(246, 101, 5, 0.15);
+  border-color: color-mix(in srgb, var(--brand-orange) 40%, transparent);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px color-mix(in srgb, var(--brand-orange) 15%, transparent);
 }
 
 .appCardBanner {
@@ -413,9 +409,9 @@
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 100px;
-  background: rgba(246, 101, 5, 0.15);
+  background: color-mix(in srgb, var(--brand-orange) 15%, transparent);
   color: var(--brand-orange);
-  border: 1px solid rgba(246, 101, 5, 0.3);
+  border: 1px solid color-mix(in srgb, var(--brand-orange) 30%, transparent);
 }
 
 .appCardBadgeLive {
@@ -467,9 +463,9 @@
 .aboutImageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(246, 101, 5, 0.15) 0%, transparent 60%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-orange) 15%, transparent) 0%, transparent 60%);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(246, 101, 5, 0.2);
+  border: 1px solid color-mix(in srgb, var(--brand-orange) 20%, transparent);
 }
 
 .aboutText p {

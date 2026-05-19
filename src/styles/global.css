@@ -3,9 +3,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
-  --orange: rgb(246, 101, 5);
-  --orange-dark: rgb(169, 69, 3);
+/* ---- Brand & design tokens ---- */
+:root {
+  --brand-orange: rgb(246, 139, 30);
+  --brand-orange-dark: rgb(200, 110, 15);
+  --brand-orange-glow: rgba(246, 139, 30, 0.35);
+
+  --orange: var(--brand-orange);
+  --orange-dark: var(--brand-orange-dark);
   --green: rgb(98, 183, 102);
   --green-dark: rgb(70, 131, 73);
   --salmon: rgb(240, 97, 95);
@@ -15,8 +22,7 @@
   --black: rgb(13, 13, 15);
   --grey: rgb(51, 51, 51);
 
-  /* Two valid colors. The first applies to the thumb of the scrollbar, the second to the track. */
-  scrollbar-color: var(--orange) var(--black);
+  scrollbar-color: var(--brand-orange) var(--black);
 }
 
 /* Basic styling */
