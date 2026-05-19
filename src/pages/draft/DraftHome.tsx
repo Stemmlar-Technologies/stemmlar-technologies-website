@@ -24,7 +24,7 @@ const apps = [
     name: 'Forsaking Valhalla',
     platform: 'PC · Steam / Itch.io',
     description:
-      'A Viking action game where you must fight your way through the afterlife. Wishlist on Steam or try the beta on Itch.io now.',
+      'A survival RTS game where you defend your village against relentless waves of Norse mythological creatures. Build defenses, train warriors, and gather resources to survive as long as possible. If your Town Hall falls, it\'s game over. How long will you last?',
     icon: '/applications/forsaking-valhalla/forsaking-valhalla-icon-52.png',
     banner: '/applications/forsaking-valhalla/store_capsule_header.png',
     badge: 'In Development',
