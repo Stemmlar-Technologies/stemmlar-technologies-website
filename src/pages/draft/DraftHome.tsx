@@ -25,8 +25,8 @@ const apps = [
     platform: 'PC · Steam / Itch.io',
     description:
       'A Viking action game where you must fight your way through the afterlife. Wishlist on Steam or try the beta on Itch.io now.',
-    icon: '/img/icons/icon_steam.png',
-    banner: '/img/store_page_background.webp',
+    icon: '/applications/forsaking-valhalla/forsaking-valhalla-icon-52.png',
+    banner: '/applications/forsaking-valhalla/store_capsule_header.png',
     badge: 'In Development',
     badgeLive: false,
     href: 'https://store.steampowered.com/app/3490030/Forsaking_Valhalla',
