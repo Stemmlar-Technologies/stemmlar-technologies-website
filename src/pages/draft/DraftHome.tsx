@@ -347,7 +347,7 @@ export default function DraftHome() {
             alt="Stemmlar Technologies"
             className={styles.footerLogo}
           />
-          <p className={styles.footerCopy}>© 2025 Stemmlar Technologies</p>
+          <p className={styles.footerCopy}>© {new Date().getFullYear()} Stemmlar Technologies</p>
           <div className={styles.footerLinks}>
             <Link to="/applications/track-my-time/privacy">Privacy — Track My Time</Link>
             <Link to="/applications/lara-jones-and-the-caves-of-madness/privacy">Privacy — Lara Jones</Link>
