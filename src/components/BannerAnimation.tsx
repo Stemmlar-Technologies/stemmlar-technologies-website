@@ -185,8 +185,10 @@ export default function BannerAnimation() {
       let vehicles: Vehicle[] = []
       let shipImage: p5.Image | null = null
 
-      p.preload = () => {
-        shipImage = p.loadImage('/decorations/banner/assets/ship.png')
+      // p5 v2: assign lifecycle methods directly on the instance
+      ;(p as unknown as Record<string, unknown>)['preload'] = () => {
+        // loadImage inside preload returns p5.Image synchronously
+        shipImage = p.loadImage('/decorations/banner/assets/ship.png') as unknown as p5.Image
       }
 
       p.setup = () => {

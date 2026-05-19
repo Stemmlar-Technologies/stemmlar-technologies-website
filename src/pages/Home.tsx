@@ -1,0 +1,76 @@
+import BannerAnimation from '../components/BannerAnimation'
+import SectionContainer from '../components/SectionContainer'
+import AppTile from '../components/AppTile'
+import ContactForm from '../components/ContactForm'
+import { apps } from '../data/apps'
+
+export default function Home() {
+  return (
+    <>
+      {/* Landing Section */}
+      <section id="landing" className="landing">
+        <BannerAnimation />
+        <div className="container landing-content">
+          <img
+            src="/img/Stemmlar Technologies Logo.png"
+            alt="Welcome to Stemmlar Technologies"
+            className="title"
+          />
+          <br />
+          <a href="#apps" className="btn">
+            Our Applications
+          </a>
+        </div>
+      </section>
+
+      {/* Apps Section */}
+      <section id="apps" className="apps">
+        <SectionContainer>
+          <h2>Our Applications</h2>
+          <div className="app-list">
+            {apps.map((app) => (
+              <AppTile key={app.slug} app={app} />
+            ))}
+          </div>
+        </SectionContainer>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="about">
+        <SectionContainer>
+          <h2>About Us</h2>
+          <p>
+            Welcome to Stemmlar Technologies! We are an innovative software development company
+            dedicated to crafting exceptional digital experiences. At Stemmlar, we thrive on pushing
+            the boundaries of technology to create impactful solutions that enrich lives.
+          </p>
+          <p>
+            Our expertise spans across various domains, including video games, mobile applications,
+            web applications, desktop applications, and cloud-based solutions. Whether it's crafting
+            captivating gaming experiences, building intuitive mobile apps, developing robust web
+            platforms, or architecting scalable cloud solutions, we are passionate about turning
+            ideas into reality.
+          </p>
+          <p>
+            Driven by creativity, collaboration, and a commitment to excellence, we take pride in
+            delivering high-quality software solutions that exceed expectations. With a focus on
+            innovation and user-centric design, we strive to empower businesses and individuals to
+            achieve their goals in the digital landscape.
+          </p>
+          <p>
+            Join us on our journey as we continue to innovate, inspire, and transform the world of
+            technology.
+          </p>
+        </SectionContainer>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="contact">
+        <SectionContainer>
+          <h2>Contact Us</h2>
+          <ContactForm />
+        </SectionContainer>
+      </section>
+    </>
+  )
+}
