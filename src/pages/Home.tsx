@@ -33,8 +33,8 @@ const apps = [
     placeholderGradient: null,
     badge: 'In Development',
     badgeLive: false,
-    href: 'https://store.steampowered.com/app/3490030/Forsaking_Valhalla',
-    external: true,
+    href: '/applications/forsaking-valhalla',
+    external: false,
   },
   {
     slug: 'lara-jones-and-the-caves-of-madness',
@@ -356,6 +356,8 @@ export default function DraftHome() {
           />
           <p className={styles.footerCopy}>© {new Date().getFullYear()} Stemmlar Technologies</p>
           <div className={styles.footerLinks}>
+            <Link to="/press">Press Kit</Link>
+            <Link to="/legal">Legal & Cookies</Link>
             <Link to="/applications/track-my-time/privacy">Privacy — Track My Time</Link>
             <Link to="/applications/lara-jones-and-the-caves-of-madness/privacy">Privacy — Lara Jones</Link>
           </div>

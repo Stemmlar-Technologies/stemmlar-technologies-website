@@ -5,7 +5,12 @@ import TrackMyTime from './pages/apps/TrackMyTime'
 import TrackMyTimePrivacy from './pages/apps/TrackMyTimePrivacy'
 import LaraJones from './pages/apps/LaraJones'
 import LaraJonesPrivacy from './pages/apps/LaraJonesPrivacy'
+import ForsakingValhalla from './pages/apps/ForsakingValhalla'
+import CompanyPressKit from './pages/press/CompanyPressKit'
+import ForsakingValhallaPress from './pages/press/ForsakingValhallaPress'
+import Legal from './pages/Legal'
 import NotFound from './pages/NotFound'
+import CookieBanner from './components/CookieBanner'
 
 function App() {
   return (
@@ -15,16 +20,15 @@ function App() {
         <Route path="/links" element={<Links />} />
         <Route path="/applications/track-my-time" element={<TrackMyTime />} />
         <Route path="/applications/track-my-time/privacy" element={<TrackMyTimePrivacy />} />
-        <Route
-          path="/applications/lara-jones-and-the-caves-of-madness"
-          element={<LaraJones />}
-        />
-        <Route
-          path="/applications/lara-jones-and-the-caves-of-madness/privacy"
-          element={<LaraJonesPrivacy />}
-        />
+        <Route path="/applications/lara-jones-and-the-caves-of-madness" element={<LaraJones />} />
+        <Route path="/applications/lara-jones-and-the-caves-of-madness/privacy" element={<LaraJonesPrivacy />} />
+        <Route path="/applications/forsaking-valhalla" element={<ForsakingValhalla />} />
+        <Route path="/press" element={<CompanyPressKit />} />
+        <Route path="/press/forsaking-valhalla" element={<ForsakingValhallaPress />} />
+        <Route path="/legal" element={<Legal />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <CookieBanner />
     </BrowserRouter>
   )
 }
